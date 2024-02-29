@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="hamburger">☰</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="article.html">Article</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!--Image Slider-->
+    <div class="slider">
+        <div class="img-box">
+           <img src="images/Cooking Veg.jpg" alt="Feng Cha Tea and decor" class="slider-img"/>
+            </div>
+    
+    <!--Next and Prev Buttons-->
+        <button class="btn" onclick="prev()">Previous</button>
+        <button class="btn" onclick="next()">Next</button>
+    </div>
+
+    <script>
+        var slider_img = document.querySelector('.slider-img');
+var images = ['Cooking Veg.jpg', 'Pizza.jpg', 'Chop.jpg'];
+var i = 0; // Current Image Index
+
+function prev(){
+    if(i <= 0 ) i = images.length;
+    i--;
+    return setImg();
+}
+
+
+function next(){
+    if(i>= images.length-1 ) i = -1;
+    i++;
+    return setImg();
+}
+
+
+function setImg(){
+    return slider_img.setAttribute('src','images/'+images[i]);
+}
+
+        document.querySelector('.hamburger').addEventListener('click',function() {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+    </script>
+    
+</body>
+</html>
